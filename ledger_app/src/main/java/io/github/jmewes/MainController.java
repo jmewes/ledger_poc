@@ -1,5 +1,6 @@
 package io.github.jmewes;
 
+import com.google.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -10,6 +11,7 @@ public class MainController {
 
     private final GreetingService greetingService;
 
+    @Inject
     public MainController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
