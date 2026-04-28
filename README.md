@@ -20,3 +20,8 @@ The fat jar is created at `ledger_app/target/ledger_app-1.0-SNAPSHOT-shaded.jar`
 ```bash
 java -jar ledger_app/target/ledger_app-1.0-SNAPSHOT-shaded.jar
 ```
+
+## References
+
+- https://github.com/experimental-software/transcription-audio-player
+- https://github.com/bsommerfeld/neverlose
