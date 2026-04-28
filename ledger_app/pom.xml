@@ -81,4 +81,69 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>package-windows</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.github.fvarrui</groupId>
+                        <artifactId>javapackager</artifactId>
+                        <version>1.7.6</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>package</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>io.github.jmewes.Launcher</mainClass>
+                                    <name>ledger</name>
+                                    <bundleJre>true</bundleJre>
+                                    <generateInstaller>false</generateInstaller>
+                                    <platform>windows</platform>
+                                    <runnableJar>${project.build.directory}/${project.artifactId}-${project.version}-shaded.jar</runnableJar>
+                                    <copyDependencies>false</copyDependencies>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>package-mac</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.github.fvarrui</groupId>
+                        <artifactId>javapackager</artifactId>
+                        <version>1.7.6</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>package</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>io.github.jmewes.Launcher</mainClass>
+                                    <name>ledger</name>
+                                    <bundleJre>true</bundleJre>
+                                    <generateInstaller>false</generateInstaller>
+                                    <platform>mac</platform>
+                                    <runnableJar>${project.build.directory}/${project.artifactId}-${project.version}-shaded.jar</runnableJar>
+                                    <copyDependencies>false</copyDependencies>
+                                    <macConfig>
+                                        <entitlements>${project.basedir}/assets/mac/entitlements.plist</entitlements>
+                                    </macConfig>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
